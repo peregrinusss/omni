@@ -165,13 +165,9 @@ if (header) {
   const menuMobile = document.querySelector('.header-mobile-menu');
   window.addEventListener('scroll', () => {
     if (!menuMobile.classList.contains('menu--active')) {
-      if (scrollPosition() > lastScroll && !containHide()) {
+      if (scrollPosition() > lastScroll && !containHide() && scrollPosition() > 10) {
         //scroll down
-        if (scrollPosition() == 0) {
-          header.classList.remove('hide');
-        } else {
-          header.classList.add('hide');
-        }
+        header.classList.add('hide');
       } else if (scrollPosition() < lastScroll && containHide()) {
         //scroll up
         header.classList.remove('hide');
