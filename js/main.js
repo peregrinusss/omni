@@ -167,7 +167,7 @@ if (header) {
     if (!menuMobile.classList.contains('menu--active')) {
       if (scrollPosition() > lastScroll && !containHide()) {
         //scroll down
-        if (scrollPosition() <= 10) {
+        if (scrollPosition() == 0) {
           header.classList.remove('hide');
         } else {
           header.classList.add('hide');
