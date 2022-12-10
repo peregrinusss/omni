@@ -99,16 +99,13 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .main {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-}
-
-section {
-  overflow-x: hidden;
 }
 
 img {
@@ -188,7 +185,7 @@ a {
 }
 @media (max-width: 960px) {
   .container {
-    max-width: 720px;
+    max-width: 760px;
   }
 }
 @media (max-width: 639px) {
@@ -715,6 +712,7 @@ a:focus-visible {
 /* ----------------- INTRO ----------------- */
 .intro {
   margin-top: 120px;
+  overflow-x: clip;
 }
 @media (max-width: 1250px) {
   .intro {
@@ -1094,6 +1092,14 @@ a:focus-visible {
   }
   .works__types::-webkit-scrollbar {
     display: none;
+  }
+}
+@media (max-width: 639px) {
+  .works__types {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 .works__type {
