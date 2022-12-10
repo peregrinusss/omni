@@ -169,6 +169,8 @@ if (header) {
     } else if (scrollPosition() < lastScroll && containHide()) {
       //scroll up
       header.classList.remove('hide');
+    } else if (scrollPosition() == 0) {
+      header.classList.remove('hide');
     }
     lastScroll = scrollPosition();
   });
