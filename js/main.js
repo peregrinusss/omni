@@ -174,6 +174,8 @@ if (header) {
       } else if (scrollPosition() <= 10) {
         header.classList.remove('hide');
       }
+    } else {
+      header.classList.remove('hide');
     }
     lastScroll = scrollPosition();
   });
