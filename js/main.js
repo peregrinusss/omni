@@ -169,7 +169,7 @@ if (header) {
     } else if (scrollPosition() < lastScroll && containHide()) {
       //scroll up
       header.classList.remove('hide');
-    } else if (scrollPosition() == 0) {
+    } else if (scrollPosition() <= 10) {
       header.classList.remove('hide');
     }
     lastScroll = scrollPosition();
