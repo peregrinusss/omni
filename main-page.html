@@ -39,7 +39,7 @@
             </ul>
           </nav>
           <div class="header__btns">
-            <button class="header__btn header__btn-app btn-main" data-graph-path="request">Оставить заявку</button>
+            <button class="header__btn header__btn-app btn-main popup-open" data-popup="#popup-req">Оставить заявку</button>
             <a href="#" class="header__btn header__btn-telegram">
               <svg class="">
                 <use xlink:href="img/sprite.svg#telegram"></use>
@@ -458,6 +458,7 @@
   </div>
 </footer>
 
+    <div class="preloader"></div>
     <div class="popup popup-clients" id="popup-clients">
   <div class="popup-body poup-clients__body">
     <button class="popup-close btn-reset close-btn">
@@ -521,6 +522,55 @@
           <img src="img/pages/main-page/client_2.svg" alt="">
         </a>
       </div>
+    </div>
+  </div>
+</div>
+
+    <div class="popup popup-req" id="popup-req">
+  <div class="popup-body poup-clients__body">
+    <button class="popup-close btn-reset close-btn">
+      <img src="img/icons/close-btn.svg" alt="">
+    </button>
+    <div class="container">
+      <h2 class="popup-title popup-req__title">Оставьте заявку и мы свяжемся с вами</h2>
+      <form action="" class="popup-req__form">
+        <div class="popup-req__select">
+          <select name="" id="" class="default" required>
+              <option value="">Услуга</option>
+              <option data-bue="123" value="sites">Сайты</option>
+              <option value="TM">Техническая поддержка по модели T&M</option>
+              <option value="SEO">SEO продвижение</option>
+              <option value="CRM">Внедрение и инеграция CRM</option>
+              <option value="Design">Графический дизайн и дизайн презентаций</option>
+              <option value="SEOL">SEO продвижение</option>
+              <option value="CRM">Внедрение и инеграция CRM</option>
+              <option value="Design">Графический дизайн и дизайн презентаций</option>
+              <option value="SEOL">SEO продвижение</option>
+              <option value="CRM">Внедрение и инеграция CRM</option>
+              <option value="Design">Графический дизайн и дизайн презентаций</option>
+              <option value="SEOL">SEO продвижение</option>
+          </select>
+        </div>
+        <input type="text" placeholder="Имя" required class="popup-req__input">
+        <input type="tel" placeholder="Телефон" required class="popup-req__input">
+        <input type="text" placeholder="Комментарий" required class="popup-req__input">
+        <div class="popup-req__file input__wrapper">
+          <input required name="file" type="file" id="input__file" class="input input__file" multiple>
+          <label for="input__file" class="input__file-button">
+             <span class="input__file-button-text">Прикрепить файл</span>
+          </label>
+       </div>
+        <div class="popup-req__checkbox checkbox">
+          <input required type="checkbox" id="result" class="checkbox-input">
+          <label for="result" class="checkbox-label">Я согласен с политикой конфеденциальности</label>
+        </div>
+        <div class="popup-req__btnwrap">
+          <div class="intro__btn btn-main popup-req__btn">
+            <button class="btn-reset btn-main-body">Оставить заявку</button>
+            <div></div>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
