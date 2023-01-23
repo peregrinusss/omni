@@ -365,6 +365,113 @@ if (preloader) {
   };
 }
 
+// Projects filter
+const projAreaWrap = document.querySelector('#filter-area');
+const projTypeWrap = document.querySelector('#filter-type');
+if (projAreaWrap) {
+  const projAreas = projAreaWrap.querySelectorAll('.proj-filter__arg');
+  const projTypes = projTypeWrap.querySelectorAll('.proj-filter__arg');
+  const filterCards = document.querySelectorAll('.filterCard');
+  projAreas.forEach(projArea => {
+    projArea.addEventListener('click', () => {
+      if (!projArea.classList.contains('active')) {
+        projAreas.forEach(el => {
+          el.classList.remove('active');
+        });
+        projArea.classList.add('active');
+        const category = projArea.dataset.filter;
+        filterCards.forEach(item => {
+          projAreaWrap.classList.add('filtered');
+          if (!projTypeWrap.classList.contains('filtered')) {
+            if (!item.classList.contains(category)) {
+              item.classList.add('filterAnimated');
+              item.classList.add('filterHide');
+              item.dataset.area = category;
+            } else {
+              item.classList.remove('filterHide');
+              item.classList.remove('filterAnimated');
+              item.dataset.area = category;
+            }
+          } else {
+            if (!item.classList.contains(category) || !item.classList.contains(item.dataset.type)) {
+              item.classList.add('filterAnimated');
+              item.classList.add('filterHide');
+              item.dataset.area = category;
+            } else if (item.classList.contains(category) && item.classList.contains(item.dataset.type)) {
+              item.classList.remove('filterHide');
+              item.classList.remove('filterAnimated');
+              item.dataset.area = category;
+            }
+          }
+        });
+      } else {
+        projArea.classList.remove('active');
+        filterCards.forEach(item => {
+          projAreaWrap.classList.remove('filtered');
+          if (!projTypeWrap.classList.contains('filtered')) {
+            item.classList.remove('filterHide');
+            item.classList.remove('filterAnimated');
+          } else {
+            if (item.classList.contains(item.dataset.type)) {
+              item.classList.remove('filterHide');
+              item.classList.remove('filterAnimated');
+            }
+          }
+        });
+      }
+    });
+  });
+  projTypes.forEach(projType => {
+    projType.addEventListener('click', () => {
+      if (!projType.classList.contains('active')) {
+        projTypes.forEach(el => {
+          el.classList.remove('active');
+        });
+        projType.classList.add('active');
+        const category = projType.dataset.filter;
+        filterCards.forEach(item => {
+          projTypeWrap.classList.add('filtered');
+          if (!projAreaWrap.classList.contains('filtered')) {
+            if (!item.classList.contains(category)) {
+              item.classList.add('filterAnimated');
+              item.classList.add('filterHide');
+              item.dataset.type = category;
+            } else {
+              item.classList.remove('filterHide');
+              item.classList.remove('filterAnimated');
+              item.dataset.type = category;
+            }
+          } else {
+            if (!item.classList.contains(category) || !item.classList.contains(item.dataset.area)) {
+              item.classList.add('filterAnimated');
+              item.classList.add('filterHide');
+              item.dataset.type = category;
+            } else if (item.classList.contains(category) && item.classList.contains(item.dataset.area)) {
+              item.classList.remove('filterHide');
+              item.classList.remove('filterAnimated');
+              item.dataset.type = category;
+            }
+          }
+        });
+      } else {
+        projType.classList.remove('active');
+        filterCards.forEach(item => {
+          projTypeWrap.classList.remove('filtered');
+          if (!projAreaWrap.classList.contains('filtered')) {
+            item.classList.remove('filterHide');
+            item.classList.remove('filterAnimated');
+          } else {
+            if (item.classList.contains(item.dataset.area)) {
+              item.classList.remove('filterHide');
+              item.classList.remove('filterAnimated');
+            }
+          }
+        });
+      }
+    });
+  });
+}
+
 /***/ }),
 
 /***/ "./src/js/components/modals.js":
