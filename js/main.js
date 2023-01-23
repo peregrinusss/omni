@@ -366,12 +366,39 @@ if (preloader) {
 }
 
 // Projects filter
+const filterOpenBtn = document.querySelector('.proj-filter__open');
+if (filterOpenBtn) {
+  const filter = document.querySelector('.proj-filter__lists');
+  const filterReset = document.querySelector('.proj-filter__clear');
+  filterOpenBtn.addEventListener('click', () => {
+    filterOpenBtn.classList.toggle('active');
+    filter.classList.toggle('opened');
+    filterReset.classList.toggle('active');
+  });
+}
 const projAreaWrap = document.querySelector('#filter-area');
 const projTypeWrap = document.querySelector('#filter-type');
 if (projAreaWrap) {
   const projAreas = projAreaWrap.querySelectorAll('.proj-filter__arg');
   const projTypes = projTypeWrap.querySelectorAll('.proj-filter__arg');
   const filterCards = document.querySelectorAll('.filterCard');
+  const filterReset = document.querySelector('.proj-filter__clear');
+  filterReset.addEventListener('click', () => {
+    filterCards.forEach(item => {
+      item.classList.remove('filterHide');
+      item.classList.remove('filterAnimated');
+      item.dataset.area = 'none';
+      item.dataset.type = 'none';
+    });
+    projAreaWrap.classList.remove('filtered');
+    projTypeWrap.classList.remove('filtered');
+    projAreas.forEach(el => {
+      el.classList.remove('active');
+    });
+    projTypes.forEach(el => {
+      el.classList.remove('active');
+    });
+  });
   projAreas.forEach(projArea => {
     projArea.addEventListener('click', () => {
       if (!projArea.classList.contains('active')) {

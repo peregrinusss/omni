@@ -2919,6 +2919,120 @@ a:focus-visible {
 .proj-filter__lists > :last-child {
   margin-left: 200px;
 }
+.proj-filter__btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 40px;
+}
+.proj-filter__open {
+  background: #FFE457;
+  border: 2px solid #000000;
+  border-radius: 40px;
+  padding: 15px 20px;
+}
+.proj-filter__open span {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 110%;
+  color: #000000;
+  position: relative;
+  padding-left: 28px;
+}
+.proj-filter__open span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 18px;
+  height: 2px;
+  background: #000000;
+  background-size: 18px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.proj-filter__open span::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 2px;
+  height: 18px;
+  background: #000000;
+  background-size: 18px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.proj-filter__open.active span::after {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.proj-filter__open.active span::before {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.proj-filter__clear {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 110%;
+  color: #000000;
+  margin-left: 60px;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+}
+.proj-filter__clear.active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.proj-filter__clear::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.proj-filter__clear:hover::after {
+  opacity: 0;
+  visibility: hidden;
+}
+.proj-filter__lists {
+  display: none;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.proj-filter__lists.opened {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
 .proj-filter__list {
   width: 100%;
   max-width: 340px;
