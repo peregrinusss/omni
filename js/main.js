@@ -163,7 +163,6 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (() => {
 
 // Header hide
-
 const header = document.querySelector('.header__content');
 if (header) {
   let lastScroll = 0;
@@ -498,6 +497,57 @@ if (projAreaWrap) {
     });
   });
 }
+const lazyImages = document.querySelectorAll('img[data-src], source[data-srcset]');
+const windowHeight = document.documentElement.clientHeight;
+let lazyImagesPositions = [];
+if (lazyImages.length > 0) {
+  lazyImages.forEach(img => {
+    if (img.dataset.src || img.dataset.srcset) {
+      lazyImagesPositions.push(img.getBoundingClientRect().top + pageYOffset);
+      lazyScrollCheck();
+    }
+  });
+}
+window.addEventListener("scroll", lazyScroll);
+function lazyScroll() {
+  if (document.querySelectorAll('img[data-src], source[data-srcset]').length > 0) {
+    lazyScrollCheck();
+  }
+}
+function lazyScrollCheck() {
+  let imgIndex = lazyImagesPositions.findIndex(item => pageYOffset > item - windowHeight);
+  if (imgIndex >= 0) {
+    if (lazyImages[imgIndex].dataset.src) {
+      lazyImages[imgIndex].src = lazyImages[imgIndex].dataset.src;
+      lazyImages[imgIndex].removeAttribute('data-src');
+    } else if (lazyImages[imgIndex].dataset.srcset) {
+      lazyImages[imgIndex].srcset = lazyImages[imgIndex].dataset.srcset;
+      lazyImages[imgIndex].removeAttribute('data-srcset');
+    }
+    delete lazyImagesPositions[imgIndex];
+  }
+}
+function Marquee(selector, speed) {
+  const parentSelector = document.querySelector(selector);
+  const clone = parentSelector.innerHTML;
+  const firstElement = parentSelector.children[0];
+  let i = 0;
+  console.log(firstElement);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+  setInterval(function () {
+    firstElement.style.marginLeft = `-${i}px`;
+    if (i > firstElement.clientWidth) {
+      i = 0;
+    }
+    i = i + speed;
+  }, 0);
+}
+
+//after window is completed load
+//1 class selector for marquee
+//2 marquee speed 0.2
+window.addEventListener('load', Marquee('.marquee', 0.2));
 
 /***/ }),
 
