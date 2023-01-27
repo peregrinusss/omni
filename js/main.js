@@ -143,16 +143,23 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************!*\
   !*** ./src/js/_vendor.js ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vendor_focus_visible_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vendor/focus-visible.js */ "./src/js/vendor/focus-visible.js");
 /* harmony import */ var _vendor_focus_visible_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_vendor_focus_visible_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _vendor_choices_min_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vendor/choices.min.js */ "./src/js/vendor/choices.min.js");
 /* harmony import */ var _vendor_choices_min_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_vendor_choices_min_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var https_cdn_jsdelivr_net_npm_vanilla_marquee_dist_vanilla_marquee_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! https://cdn.jsdelivr.net/npm/vanilla-marquee/dist/vanilla-marquee.js */ "https://cdn.jsdelivr.net/npm/vanilla-marquee/dist/vanilla-marquee.js");
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([https_cdn_jsdelivr_net_npm_vanilla_marquee_dist_vanilla_marquee_js__WEBPACK_IMPORTED_MODULE_2__]);
+https_cdn_jsdelivr_net_npm_vanilla_marquee_dist_vanilla_marquee_js__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
@@ -527,27 +534,29 @@ function lazyScrollCheck() {
     delete lazyImagesPositions[imgIndex];
   }
 }
-function Marquee(selector, speed) {
-  const parentSelector = document.querySelector(selector);
-  const clone = parentSelector.innerHTML;
-  const firstElement = parentSelector.children[0];
-  let i = 0;
-  console.log(firstElement);
-  parentSelector.insertAdjacentHTML('beforeend', clone);
-  parentSelector.insertAdjacentHTML('beforeend', clone);
-  setInterval(function () {
-    firstElement.style.marginLeft = `-${i}px`;
-    if (i > firstElement.clientWidth) {
-      i = 0;
-    }
-    i = i + speed;
-  }, 0);
-}
 
-//after window is completed load
-//1 class selector for marquee
-//2 marquee speed 0.2
-window.addEventListener('load', Marquee('.marquee', 0.2));
+// function Marquee(selector, speed) {
+//   const parentSelector = document.querySelector(selector);
+//   const clone = parentSelector.innerHTML;
+//   const firstElement = parentSelector.children[0];
+//   let i = 0;
+//   console.log(firstElement);
+//   parentSelector.insertAdjacentHTML('beforeend', clone);
+//   parentSelector.insertAdjacentHTML('beforeend', clone);
+
+//   setInterval(function () {
+//     firstElement.style.marginLeft = `-${i}px`;
+//     if (i > firstElement.clientWidth) {
+//       i = 0;
+//     }
+//     i = i + speed;
+//   }, 0);
+// }
+
+// //after window is completed load
+// //1 class selector for marquee
+// //2 marquee speed 0.2
+// window.addEventListener('load', Marquee('.marquee', 0.2))
 
 /***/ }),
 
@@ -731,6 +740,30 @@ const mobileCheck = () => {
   }
   return "unknown";
 };
+
+/***/ }),
+
+/***/ "./src/js/main.js":
+/*!************************!*\
+  !*** ./src/js/main.js ***!
+  \************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_vendor */ "./src/js/_vendor.js");
+/* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_vars */ "./src/js/_vars.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_functions */ "./src/js/_functions.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_components */ "./src/js/_components.js");
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_vendor__WEBPACK_IMPORTED_MODULE_0__]);
+_vendor__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
@@ -4851,6 +4884,9 @@ class GraphModal {
 
 
 /***/ }),
+
+/***/ "https://cdn.jsdelivr.net/npm/vanilla-marquee/dist/vanilla-marquee.js":
+false,
 
 /***/ "./node_modules/dom7/dom7.esm.js":
 /*!***************************************!*\
@@ -17454,6 +17490,75 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/async module */
+/******/ 	(() => {
+/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
+/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
+/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
+/******/ 		var resolveQueue = (queue) => {
+/******/ 			if(queue && !queue.d) {
+/******/ 				queue.d = 1;
+/******/ 				queue.forEach((fn) => (fn.r--));
+/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
+/******/ 			}
+/******/ 		}
+/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
+/******/ 			if(dep !== null && typeof dep === "object") {
+/******/ 				if(dep[webpackQueues]) return dep;
+/******/ 				if(dep.then) {
+/******/ 					var queue = [];
+/******/ 					queue.d = 0;
+/******/ 					dep.then((r) => {
+/******/ 						obj[webpackExports] = r;
+/******/ 						resolveQueue(queue);
+/******/ 					}, (e) => {
+/******/ 						obj[webpackError] = e;
+/******/ 						resolveQueue(queue);
+/******/ 					});
+/******/ 					var obj = {};
+/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
+/******/ 					return obj;
+/******/ 				}
+/******/ 			}
+/******/ 			var ret = {};
+/******/ 			ret[webpackQueues] = x => {};
+/******/ 			ret[webpackExports] = dep;
+/******/ 			return ret;
+/******/ 		}));
+/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
+/******/ 			var queue;
+/******/ 			hasAwait && ((queue = []).d = 1);
+/******/ 			var depQueues = new Set();
+/******/ 			var exports = module.exports;
+/******/ 			var currentDeps;
+/******/ 			var outerResolve;
+/******/ 			var reject;
+/******/ 			var promise = new Promise((resolve, rej) => {
+/******/ 				reject = rej;
+/******/ 				outerResolve = resolve;
+/******/ 			});
+/******/ 			promise[webpackExports] = exports;
+/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
+/******/ 			module.exports = promise;
+/******/ 			body((deps) => {
+/******/ 				currentDeps = wrapDeps(deps);
+/******/ 				var fn;
+/******/ 				var getResult = () => (currentDeps.map((d) => {
+/******/ 					if(d[webpackError]) throw d[webpackError];
+/******/ 					return d[webpackExports];
+/******/ 				}))
+/******/ 				var promise = new Promise((resolve) => {
+/******/ 					fn = () => (resolve(getResult));
+/******/ 					fn.r = 0;
+/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
+/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
+/******/ 				});
+/******/ 				return fn.r ? promise : getResult();
+/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
+/******/ 			queue && (queue.d = 0);
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -17495,24 +17600,12 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!************************!*\
-  !*** ./src/js/main.js ***!
-  \************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_vendor */ "./src/js/_vendor.js");
-/* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_vars */ "./src/js/_vars.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_functions */ "./src/js/_functions.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_components */ "./src/js/_components.js");
-
-
-
-
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module used 'module' so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/js/main.js");
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map

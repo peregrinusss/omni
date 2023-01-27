@@ -263,6 +263,9 @@ a {
     border-top-right-radius: 0;
   }
 }
+.wrap-beige {
+  background: #EBEAE6;
+}
 
 .noscroll {
   overflow: hidden;
@@ -1207,7 +1210,10 @@ a:focus-visible {
   z-index: 101;
 }
 .marquee__img {
-  background-image: url("../img/pages/marquee.svg");
+  display: inline-block;
+  padding-left: 100%;
+  -webkit-animation: scroll 20s infinite linear;
+  animation: scroll 20s infinite linear;
   width: 220px;
   height: 147px;
   margin-left: -5px;
@@ -3342,7 +3348,6 @@ a:focus-visible {
     gap: 40px;
   }
 }
-
 @-webkit-keyframes rotateInf {
   0% {
     -webkit-transform: rotate(0);
@@ -3353,7 +3358,6 @@ a:focus-visible {
     transform: rotate(360deg);
   }
 }
-
 @keyframes rotateInf {
   0% {
     -webkit-transform: rotate(0);
