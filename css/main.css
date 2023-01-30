@@ -65,6 +65,13 @@
   font-display: swap;
   font-style: normal;
 }
+@font-face {
+  font-family: "Plex";
+  src: url("../fonts/../fonts/martion.woff2") format("woff2");
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -255,7 +262,7 @@ a {
   padding-top: 129px;
   padding-bottom: 120px;
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .wrap-white-page {
     padding-bottom: 80px;
     padding-top: 121px;
@@ -1201,13 +1208,38 @@ a:focus-visible {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
+  white-space: nowrap;
   overflow: hidden;
-  height: 200px;
   background: #FFE457;
   border-top: 3px solid #000000;
   border-bottom: 3px solid #000000;
   position: relative;
+  padding: 20px 0;
   z-index: 101;
+  font-family: "Plex", sans-serif;
+}
+@media (max-width: 1250px) {
+  .marquee {
+    padding: 18px;
+  }
+}
+.marquee h1 {
+  font-size: 104px;
+  font-weight: 900;
+  line-height: 110%;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+@media (max-width: 1250px) {
+  .marquee h1 {
+    font-size: 80px;
+  }
+}
+@media (max-width: 639px) {
+  .marquee h1 {
+    font-size: clamp(54px,54px + (80 - 54) * ((100vw - 320px)/(640 - 320)),80px);
+  }
 }
 .marquee__img {
   display: inline-block;
@@ -1251,9 +1283,32 @@ a:focus-visible {
     top: 550px;
   }
 }
+@media (max-width: 639px) {
+  .marquee__wrap {
+    top: clamp(520px,520px + (550 - 520) * ((100vw - 320px)/(640 - 320)),550px);
+  }
+}
 .marquee__place {
-  height: 200px;
+  opacity: 0;
+  visibility: hidden;
+  padding: 25px 0;
   margin-top: 50px;
+  font-size: 104px;
+  font-weight: 900;
+  line-height: 110%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media (max-width: 1250px) {
+  .marquee__place {
+    font-size: 80px;
+    padding: 18px 0;
+  }
+}
+@media (max-width: 639px) {
+  .marquee__place {
+    font-size: clamp(54px,54px + (80 - 54) * ((100vw - 320px)/(640 - 320)),80px);
+  }
 }
 
 /* ----------------- INTRO ----------------- */
