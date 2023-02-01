@@ -260,7 +260,7 @@ if (allPopupOpenBtns.length != 0) {
 // Accordion stages site
 // const accordionStagesItems = document.querySelectorAll('.accordion__title')
 
-const stagesListDiv = document.querySelector('.stages-list');
+const stagesListDiv = document.querySelector('.accordion-list');
 if (stagesListDiv) {
   const stagesListOl = stagesListDiv.firstElementChild;
   const accordionStagesParents = stagesListOl.childNodes;
@@ -357,6 +357,7 @@ if (projAreaWrap) {
     projTypes.forEach(el => {
       el.classList.remove('active');
     });
+    filterReset.classList.remove('active');
     filterOpenBtn.firstElementChild.innerHTML = 'Фильтры';
     filterOpenBtn.dataset.numbProj = '0';
     filterOpenBtn.dataset.numbType = '0';
@@ -368,6 +369,7 @@ if (projAreaWrap) {
           el.classList.remove('active');
         });
         projArea.classList.add('active');
+        filterReset.classList.add('active');
         filterOpenBtn.dataset.numbProj = '1';
         if (filterOpenBtn.dataset.numbProj == '1' && filterOpenBtn.dataset.numbType == '1') {
           filterOpenBtn.firstElementChild.innerHTML = 'Фильтры (2)';
@@ -401,6 +403,9 @@ if (projAreaWrap) {
         });
       } else {
         projArea.classList.remove('active');
+        if (!projTypeWrap.classList.contains('filtered')) {
+          filterReset.classList.remove('active');
+        }
         filterCards.forEach(item => {
           projAreaWrap.classList.remove('filtered');
           if (!projTypeWrap.classList.contains('filtered')) {
@@ -429,6 +434,7 @@ if (projAreaWrap) {
           el.classList.remove('active');
         });
         projType.classList.add('active');
+        filterReset.classList.add('active');
         filterOpenBtn.dataset.numbType = '1';
         if (filterOpenBtn.dataset.numbProj == '1' && filterOpenBtn.dataset.numbType == '1') {
           filterOpenBtn.firstElementChild.innerHTML = 'Фильтры (2)';
@@ -462,6 +468,9 @@ if (projAreaWrap) {
         });
       } else {
         projType.classList.remove('active');
+        if (!projAreaWrap.classList.contains('filtered')) {
+          filterReset.classList.remove('active');
+        }
         filterCards.forEach(item => {
           projTypeWrap.classList.remove('filtered');
           if (!projAreaWrap.classList.contains('filtered')) {
@@ -535,6 +544,39 @@ function Marquee(selector, speed) {
 //2 marquee speed 0.2
 if (document.querySelector('.marquee')) {
   window.addEventListener('load', Marquee('.marquee', 0.2));
+}
+
+// Show more project cards
+const showMore = document.querySelector('.show-more');
+if (showMore) {
+  const productsLength = document.querySelectorAll('.filterCard').length;
+  let items = 6;
+  showMore.addEventListener('click', () => {
+    items += 4;
+    const array = Array.from(document.querySelector('.project-cards').children);
+    const visItems = array.slice(0, items);
+    visItems.forEach(el => el.classList.add('is-visible'));
+    if (visItems.length === productsLength) {
+      showMore.style.display = 'none';
+    }
+  });
+}
+
+// Input file
+const inputs = document.querySelectorAll('.input__file');
+if (inputs) {
+  Array.prototype.forEach.call(inputs, function (input) {
+    let label = input.nextElementSibling,
+      labelVal = label.querySelector('.input__file-button-text').innerText;
+    input.addEventListener('change', function (e) {
+      let countFiles = '';
+      console.log(this.files);
+      if (this.files && this.files.length >= 1) countFiles = this.files.length;
+      if (countFiles)
+        // label.querySelector('.input__file-button-text').innerText = 'Выбрано файлов: ' + countFiles;
+        label.querySelector('.input__file-button-text').innerText = this.files[0].name;else label.querySelector('.input__file-button-text').innerText = labelVal;
+    });
+  });
 }
 
 /***/ }),
